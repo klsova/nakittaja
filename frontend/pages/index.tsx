@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
-import { api } from "@/services/api";
-import { HelloResponse } from "@/types/api"; 
+import axios from "axios";
 
 export default function Home() {
-  const [message, setMessage] = useState<string>("Loading...");
+    const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    api.get<HelloResponse>("/hello/")
-      .then((response) => setMessage(response.data.message))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+    useEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/hello/")
+            .then(response => setMessage(response.data.message))
+            .catch(error => console.error("Error fetching data:", error));
+    }, []);
 
-  return (
-    <div className="container">
-      <h1>{message}</h1>
-    </div>
-  );
+    return <h1>{message || "Loading..."}</h1>;
 }
