@@ -6,4 +6,4 @@ Built on a Django backend and Next.js frontend
 - Create a database for storing the data of said system
 - Make the site look good :D
 
-This will probably be a long project and the end goal for me is to be able actually provide this service to the students of UTU
+This will probably be a long project and the endgoal for me is to be able to actually provide this service to the students of UTU
